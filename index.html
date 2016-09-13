@@ -1,101 +1,53 @@
 <html>
 <head>
 	<title>Sup Gifs</title>
-	<style type="text/css">
-		button, div, form, input {
-			margin: 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="assets/css/style.css">
+<!-- Bootswatch -->
+	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/yeti/bootstrap.css">
+<!-- JQuery-->
+	<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <div class="container">
-  <h1>Getting Giphy With It</h1>
+	<div class="jumbotron">
+		<h1 class="display-3">Getting Giphy With It</h1>
+		<p class="lead">Channel your inner Will Smith and search for your favorite '90s artists.</p>
+		<hr class="m-y-md">
+		<p>Create a button then use it discover the perfect gif.</p>
+	</div>
 
+<div class="row">
   <!-- Artist buttons -->
-  <div id="buttonsView"></div>
+<div id="buttonsView"></div>
+<div class="row">
   	<form id="gif-form">
-    	<label for="gif-input">Add a '90s/'00s Pop Artist</label>
+    	<label for="gif-input">Add a '90s Artist</label>
     	<input type="text" id="gif-input"><br>
-		<input id="addArtist" type="submit" value="Na Na Na Na Na Na Na">
+		<input id="addArtist" type="submit" value="Na Na Na Na Na Na Need a Gif">
  	</form>
- 	
- 	<!-- Gifs -->
- 	<div id="gifsView"></div>
+</div> 	
+ 
+<div class="row">
+	<!-- Gifs -->
+	<div id="gifsView"></div>
+</div>
 
-<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-<script type="text/javascript">
-
-// GLOBAL VARIABLES
-	var gifs = ['Will Smith', 'Mase', 'Puff Daddy', 'Sisqo'];
-	console.log(gifs);
-
-// ========================================================
-
-	function displayGifs(){
-
-		$('document').on('click','.gifBtn',function() {
-        var gif = $(this).data('name');
-        console.log(this);
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-        $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
-            .done(function(response) {
-                var results = response.data;
-
-                for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $('<div class="item">')
-
-                    var rating = results[i].rating;
-
-                    var p = $('<p>').text("Rating: " + rating);
-
-                    var artistImage = $('<img>');
-                    artistImage.attr('src', results[i].images.fixed_height.url);
-
-                    gifDiv.append(p)
-                    gifDiv.append(artistImage)
-
-                    $('#gifsView').prepend(gifDiv);
-					}
-
-            	});
-        
-// ========================================================
-
-	function renderButtons(){ 
-		$('#buttonsView').empty();
-		for (var i = 0; i < gifs.length; i++){
-			// dynamicaly generates buttons for each gif in the array
-		    var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-		    a.addClass('gifBtn'); // Added a class 
-		    a.attr('data-name', gifs[i]); // Added a data-attribute
-		    a.text(gifs[i]); // Provided the initial button text
-		    $('#buttonsView').append(a); // Added the button to the HTML
-		}
-	}
-// ========================================================
-
-	$('#addArtist').on('click', function(){
-		// This line of code will grab the input from the textbox
-		var gifn = $("#gif-input").val().trim();
-		console.log(gifn); //this works
-		gifs.push(gifn);
-		renderButtons();
-		return false;
-	})
-
-//FUNCTION CALLS
-	// ========================================================
-	renderButtons();
-	displayGifs ();
-	
-// });
-</script>
-
-
+<!-- Javascript -->
+<script type="text/javascript" src="assets/javascript/giphy.js"></script>
 </body>
 </html>
