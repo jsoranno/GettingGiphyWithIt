@@ -7,64 +7,69 @@
 	function displayGifs(){
 		$("#gifsView").empty();
 
-        var gif = $(this).data('name');
-        console.log(this);
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var findGif = $(this).attr('data-name');
+        	console.log(this);
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + findGif + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({
                 url: queryURL,
                 method: 'GET'
-            })
+            }) //end ajax
             .done(function(response) {
                 var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $('<div class="item">')
-
                     var rating = results[i].rating;
-
                     var p = $('<p>').text("Rating: " + rating);
-
                     var artistImage = $('<img>');
                     artistImage.attr('src', results[i].images.fixed_height.url);
+                    artistImage.attr('data-still', results[i].images.fixed_height_still.url);
+                    artistImage.attr('data-animate', results[i].images.fixed_height.url)
+                    artistImage.attr('data-state', 'still');
 
-                    gifDiv.append(p)
-                    gifDiv.append(artistImage)
+                    $('.gifDiv').append(p);
+                    $('.gifDiv').append(artistImage);
+				} // end for loop
+			}); //end .done
+} //end displayGifts
+// ========================================================
 
-                    $('#gifsView').prepend(gifDiv);
-					}
-
-            	});
+$(document).on('click', ".clickImage", function(){
+	var state = $(this).attr('data-state'); 
+	if (state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }else{
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    } // end state
+}); // end on click           
         
 // ========================================================
 
-	function renderButtons(){ 
-		$('#buttonsView').empty();
-		for (var i = 0; i < gifs.length; i++){
-			// dynamicaly generates buttons for each gif in the array
-		    var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-		    a.addClass('gifBtn'); // Added a class 
-		    a.attr('data-name', gifs[i]); // Added a data-attribute
-		    a.text(gifs[i]); // Provided the initial button text
-		    $('#buttonsView').append(a); // Added the button to the HTML
-		}
-	}
+function renderButtons(){ 
+	$('#buttonsView').empty();
+	for (var i = 0; i < gifs.length; i++){
+	    var a = $('<button>'); 
+	    a.addClass('gifBtn'); 
+	    a.attr('data-name', gifs[i]); 
+	    a.text(gifs[i]);
+	    $('#buttonsView').append(a);
+	} // end for loop
+} // end renderButtons
 // ========================================================
 
-	$('#addArtist').on('click', function(){
-		// This line of code will grab the input from the textbox
-		var gifn = $("#gif-input").val().trim();
-		console.log(gifn); //this works
-		gifs.push(gifn);
-		renderButtons();
-		return false;
-	})
-
-//FUNCTION CALLS
-	// ========================================================
+$('#addArtist').on('click', function(){
+	// This line of code will grab the input from the textbox
+	var gifn = $("#gif-input").val().trim();
+	console.log(gifn); //this works
+	gifs.push(gifn);
 	renderButtons();
+	return false;
+}) //end add artist on click
 
-		//$('document').on('click','.gifBtn',function() {
-	
-// });
-</script>
+$(document).on('click', '.gifBtn', displayGifs);
+
+	// ========================================================
+
+renderButtons();

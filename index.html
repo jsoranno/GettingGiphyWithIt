@@ -22,32 +22,43 @@
 
 </head>
 <body>
-
+<!-- Jumbotron -->
 <div class="container">
-	<div class="jumbotron">
-		<h1 class="display-3">Getting Giphy With It</h1>
-		<p class="lead">Channel your inner Will Smith and search for your favorite '90s artists.</p>
-		<hr class="m-y-md">
-		<p>Create a button then use it discover the perfect gif.</p>
+		<div class="jumbotron">
+			<h1 class="display-3">Getting Giphy With It</h1>
+			<p class="lead">Channel your inner Will Smith and search for your favorite '90s artists.</p>
+			<hr class="m-y-md">
+			<p>Create a button then use it discover the perfect gif.</p>
+		<!-- close jumbotron -->
+		</div>
+
+	<div class="row">
+		<!-- Form to input search -->
+		<div id="buttonsView">
+		<!-- close buttonsView -->
+		</div> 
+	<!-- close row -->
 	</div>
 
-<div class="row">
-  <!-- Artist buttons -->
-<div id="buttonsView"></div>
-<div class="row">
-  	<form id="gif-form">
-    	<label for="gif-input">Add a '90s Artist</label>
-    	<input type="text" id="gif-input"><br>
-		<input id="addArtist" type="submit" value="Na Na Na Na Na Na Need a Gif">
- 	</form>
-</div> 	
- 
-<div class="row">
-	<!-- Gifs -->
-	<div id="gifsView"></div>
+	<div class="row">
+	  	<form id="gif-form">
+	    	<label for="gif-input">Add a '90s Artist</label>
+	    	<input type="text" id="gif-input"><br>
+			<input id="addArtist" type="submit" value="Na Na Na Na Na Na Need a Gif">
+	 	</form>
+	<!-- close row -->
+	</div> 	
+	 
+	<div class="row">
+		<!-- Gifs -->
+		<div id="gifsView">
+		<!-- close gifsView -->
+		</div>
+	<!-- close row -->
+	</div>
+<!-- close container -->
 </div>
-
 <!-- Javascript -->
-<script type="text/javascript" src="assets/javascript/giphy.js"></script>
+<script type="text/javascript" src="assets/javascripts/gifs.js"></script>
 </body>
 </html>
