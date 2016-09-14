@@ -1,6 +1,6 @@
 // GLOBAL VARIABLES
 	var gifs = ['Will Smith', 'Mase', 'Puff Daddy', 'Sisqo'];
-	console.log(gifs);
+	//console.log(gifs);
 
 // ========================================================
 
@@ -17,7 +17,7 @@
             }) //end ajax
             .done(function(response) {
                 var results = response.data;
-
+                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var rating = results[i].rating;
                     var p = $('<p>').text("Rating: " + rating);
@@ -27,8 +27,8 @@
                     artistImage.attr('data-animate', results[i].images.fixed_height.url)
                     artistImage.attr('data-state', 'still');
 
-                    $('.gifDiv').append(p);
-                    $('.gifDiv').append(artistImage);
+                    $('#gifsView').append(p);
+                    $('#gifsView').append(artistImage);
 				} // end for loop
 			}); //end .done
 } //end displayGifts
@@ -62,7 +62,7 @@ function renderButtons(){
 $('#addArtist').on('click', function(){
 	// This line of code will grab the input from the textbox
 	var gifn = $("#gif-input").val().trim();
-	console.log(gifn); //this works
+	//console.log(gifn); //this works
 	gifs.push(gifn);
 	renderButtons();
 	return false;
