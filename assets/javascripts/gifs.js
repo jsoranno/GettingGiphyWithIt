@@ -1,9 +1,12 @@
 // GLOBAL VARIABLES
 	var gifs = ['Will Smith', 'Mase', 'Puff Daddy', 'Sisqo', 'Tupac', 'Biggie'];
 	//console.log(gifs);
-
+	var siren = new Audio();
+	siren.src = "siren.mp3";
 // ========================================================
-
+	//function playSound(){
+		//siren.play();
+	//}
 	function displayGifs(){
 		$("#gifsView").empty();
 
@@ -75,6 +78,10 @@ $('#addArtist').on('click', function(){
 }) //end add artist on click
 
 $(document).on('click', '.gifBtn', displayGifs);
+$(".gifBtn").on('click', siren.play());
+
+
+//end on click
 
 	// ========================================================
 
