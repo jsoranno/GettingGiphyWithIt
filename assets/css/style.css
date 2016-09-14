@@ -7,10 +7,17 @@
 @font-face {
 	font-family: 'Marker'; src: url(amsterdam.ttf);
 	}
+body {
+	background-image: url("back.jpg");
+}
 .jumbotron {
 	text-align: center;
 	font-family: 'Tag';
+	color:black;
 	}
+.lead{
+	color:charcoal;
+}
 .jumbotron p {
 	margin-top: 10px;
 	font-family: 'Marker';
@@ -35,7 +42,7 @@ body p {
 	}
 .container {
 	vertical-align: center;
-	background-image: url("back.jpg");
+	
 	}
 .row {
 	text-align: center;
