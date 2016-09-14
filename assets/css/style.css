@@ -1,17 +1,53 @@
+@font-face {
+	font-family: 'Tag'; src: url(tagtype-freefont.ttf);
+	}
+@font-face {
+	font-family: 'Fresh'; src: url(the-fresh-prince.otf);
+	}
+@font-face {
+	font-family: 'Marker'; src: url(amsterdam.ttf);
+	}
 .jumbotron {
 	text-align: center;
-}
-
+	font-family: 'Tag';
+	}
+.jumbotron p {
+	margin-top: 10px;
+	font-family: 'Marker';
+	font-size: 30px;
+	}
+body p {
+	color:white;
+	}
+.create{
+	color:black;
+	}
 #gifsView {
 	text-align: center;
-}
-
+	}
+#addArtist{
+	font-family: 'Fresh';
+	font-size: 25px;
+	}
 #gifForm {
 	text-align: center;
-}
+	font-family: 'Fresh';
+	}
 .container {
 	vertical-align: center;
-}
+	background-image: url("back.jpg");
+	}
 .row {
 	text-align: center;
-}
+	}
+.btn {
+	margin: 5px;
+	font-family: 'Marker';
+	font-size: 35px;
+	}
+#gif-input {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border-width: thick;
+
+	}

@@ -13,10 +13,11 @@
 
 <!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
 <!-- CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
-
+	<link rel="fonts" href="assets/fonts/tagtype-freefont.ttf">
+<!-- Font Awesome -->	
+	<script src="https://use.fontawesome.com/80ed129d36.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -28,7 +29,7 @@
 			<h1 class="display-3">Getting Giphy With It</h1>
 			<p class="lead">Channel your inner Will Smith and search for your favorite '90s artists.</p>
 			<hr class="m-y-md">
-			<p>Create a button then use it discover the perfect gif.</p>
+			<p class="create">Create a button then use it discover the perfect gif.</p>
 		<!-- close jumbotron -->
 		</div>
 
@@ -46,9 +47,9 @@
 	<div class="row">
 		<div class="col-lg-12">
 		  	<form id="gif-form">
-		    	<label for="gif-input">Add a '90s Artist</label>
+		    	<!-- <label for="gif-input" class="fa fa-plus-square-o" aria-hidden="true"> Add a '90s Artist</label> -->
 		    	<input type="text" id="gif-input"><br>
-				<input id="addArtist" type="submit" value="Na Na Na Na Na Na Need a Gif">
+				<button id="addArtist" for="gif-input" class="btn btn-warning btn-lg" type="submit" value="Add an Ill Artist"> Add an Ill Artist</button>
 		 	</form>
 	 	<!-- close column -->
 		</div>

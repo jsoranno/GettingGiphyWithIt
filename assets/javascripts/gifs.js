@@ -1,5 +1,5 @@
 // GLOBAL VARIABLES
-	var gifs = ['Will Smith', 'Mase', 'Puff Daddy', 'Sisqo'];
+	var gifs = ['Will Smith', 'Mase', 'Puff Daddy', 'Sisqo', 'Tupac', 'Biggie'];
 	//console.log(gifs);
 
 // ========================================================
@@ -22,6 +22,7 @@
                     var rating = results[i].rating;
                     var p = $('<p>').text("Rating: " + rating);
                     var artistImage = $('<img>');
+                    artistImage.addClass('clickImage');
                     artistImage.attr('src', results[i].images.fixed_height.url);
                     artistImage.attr('data-still', results[i].images.fixed_height_still.url);
                     artistImage.attr('data-animate', results[i].images.fixed_height.url)
@@ -51,7 +52,8 @@ function renderButtons(){
 	$('#buttonsView').empty();
 	for (var i = 0; i < gifs.length; i++){
 	    var a = $('<button>'); 
-	    a.addClass('gifBtn'); 
+	    // a.addClass('gifBtn');
+	    a.addClass('gifBtn btn btn-info btn-md'); 
 	    a.attr('data-name', gifs[i]); 
 	    a.text(gifs[i]);
 	    $('#buttonsView').append(a);
@@ -60,12 +62,16 @@ function renderButtons(){
 // ========================================================
 
 $('#addArtist').on('click', function(){
+	//doesn't render a button if empty
+	if($("#gif-input").val() == ""){}
+	else{
 	// This line of code will grab the input from the textbox
 	var gifn = $("#gif-input").val().trim();
 	//console.log(gifn); //this works
 	gifs.push(gifn);
 	renderButtons();
 	return false;
+		}//ends else
 }) //end add artist on click
 
 $(document).on('click', '.gifBtn', displayGifs);
