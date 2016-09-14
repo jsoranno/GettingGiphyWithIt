@@ -12,7 +12,7 @@
 
         var findGif = $(this).attr('data-name');
         	console.log(this);
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + findGif + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + findGif + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({
                 url: queryURL,
