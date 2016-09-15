@@ -30,7 +30,10 @@ body p {
 	color:black;
 	}
 #gifsView {
-	text-align: center;
+	/*text-align: center;*/
+	column-count: 5;
+	line-height: 2;
+	font-weight: strong;
 	}
 #addArtist{
 	font-family: 'Fresh';
@@ -58,3 +61,9 @@ body p {
     border-width: thick;
 
 	}
+
+.clickImage {
+	-webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}

@@ -26,9 +26,9 @@
                     var p = $('<p>').text("Rating: " + rating);
                     var artistImage = $('<img>');
                     artistImage.addClass('clickImage');
-                    artistImage.attr('src', results[i].images.fixed_height.url);
-                    artistImage.attr('data-still', results[i].images.fixed_height_still.url);
-                    artistImage.attr('data-animate', results[i].images.fixed_height.url)
+                    artistImage.attr('src', results[i].images.fixed_width_still.url);
+                    artistImage.attr('data-still', results[i].images.fixed_width_still.url);
+                    artistImage.attr('data-animate', results[i].images.fixed_width.url)
                     artistImage.attr('data-state', 'still');
 
                     $('#gifsView').append(p);
