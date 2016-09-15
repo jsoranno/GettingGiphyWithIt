@@ -31,9 +31,10 @@ body p {
 	}
 #gifsView {
 	/*text-align: center;*/
-	column-count: 5;
+	column-count: 4;
 	line-height: 2;
-	font-weight: strong;
+	font-weight: bold;
+	padding: 50px;
 	}
 #addArtist{
 	font-family: 'Fresh';
@@ -43,10 +44,11 @@ body p {
 	text-align: center;
 	font-family: 'Fresh';
 	}
-.container {
+/*.container {
 	vertical-align: center;
+	padding: 20px;
 	
-	}
+	}*/
 .row {
 	text-align: center;
 	}
@@ -62,8 +64,8 @@ body p {
 
 	}
 
-.clickImage {
+/*.clickImage {
 	-webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
-}
+}*/

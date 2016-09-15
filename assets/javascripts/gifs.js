@@ -31,8 +31,9 @@
                     artistImage.attr('data-animate', results[i].images.fixed_width.url)
                     artistImage.attr('data-state', 'still');
 
+                    p = p.prepend(artistImage);
                     $('#gifsView').append(p);
-                    $('#gifsView').append(artistImage);
+                    //$('#gifsView').append(artistImage);
 				} // end for loop
 			}); //end .done
 } //end displayGifts
